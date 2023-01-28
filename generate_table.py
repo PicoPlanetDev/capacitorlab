@@ -15,7 +15,7 @@ for i in range(len(loggerA)):
     formatted_logger_c = str(round(loggerC[i], 3))
     formatted_logger_b = str(round(loggerB[i], 3))
     # Replace A, C, and B with the rounded values
-    latex_formatted_equation = str(r'$V(t)=Ae^{-Ct}+B$').replace('A', formatted_logger_a).replace('C', formatted_logger_c).replace('B', formatted_logger_c)
+    latex_formatted_equation = str(r'$V(t)=Ae^{-Ct}+B$').replace('A', formatted_logger_a).replace('C', formatted_logger_c).replace('B', formatted_logger_b)
     logger_equations.append(latex_formatted_equation) # add to list
 
 # Get coefficients for the theoretical curves
