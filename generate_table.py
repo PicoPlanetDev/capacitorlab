@@ -24,7 +24,6 @@ theoreticalC = data['Theoretical C'].tolist()
 
 # curve: V(t)=A*e^(-Ct)
 theoretical_equations = []
-print('Theoretical Equations:')
 for i in range(len(theoreticalA)):
     # round to 3 decimal places for printing
     formatted_theoretical_a = str(round(theoreticalA[i], 3))
