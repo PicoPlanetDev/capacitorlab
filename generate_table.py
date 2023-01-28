@@ -13,9 +13,13 @@ for i in range(len(loggerA)):
     # round to 3 decimal places for printing
     formatted_logger_a = str(round(loggerA[i], 3))
     formatted_logger_c = str(round(loggerC[i], 3))
-    formatted_logger_b = str(round(loggerB[i], 3))
+    num_logger_b = round(loggerB[i], 3)
+    if num_logger_b > 0:
+        formatted_logger_b = "+" + str(num_logger_b)
+    else:
+        formatted_logger_b = str(num_logger_b)
     # Replace A, C, and B with the rounded values
-    latex_formatted_equation = str(r'$V(t)=Ae^{-Ct}+B$').replace('A', formatted_logger_a).replace('C', formatted_logger_c).replace('B', formatted_logger_b)
+    latex_formatted_equation = str(r'$V(t)=Ae^{-Ct}B$').replace('A', formatted_logger_a).replace('C', formatted_logger_c).replace('B', formatted_logger_b)
     logger_equations.append(latex_formatted_equation) # add to list
 
 # Get coefficients for the theoretical curves
@@ -51,4 +55,7 @@ for i in range(len(capacitances)):
     logger_tau_value = str(round(logger_tau[i], 3))
     theoretical_tau_value = str(round(theoretical_tau[i], 3))
     percent_error_value = str(round(percent_error[i], 3))
-    print(f'${capacitance} \mu F$ & ${resistance} \Omega$ & {logger_equation} & {logger_tau_value} s & {theoretical_equation} & {theoretical_tau_value} s & {percent_error_value}\% \\\ ')
+    table_row = f'${capacitance} \mu F$ & ${resistance} \Omega$ & {logger_equation} & {logger_tau_value} s & {theoretical_equation} & {theoretical_tau_value} s & {percent_error_value}\% \\\ '
+    if capacitance == '650000':
+        table_row += "\\hline"
+    print(table_row)
